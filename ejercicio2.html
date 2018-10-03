@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS</title>
+	</head>
+	<body>
+
+		<div ng-init="miArreglo=[1,2,3,4,5,6,7,8,9,10,11,12];">
+			<h2>Tabla</h2>
+			<input type="number" ng-model="numero">
+			<select ng-model="signo">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<input type="button" value="Generar">
+			<br>
+			<br>
+		</div>
+
+		<div ng-repeat="elemento in miArreglo" ng-init="paso=$index;">
+			{{numero}} {{signo}} {{paso+1}} =
+		</div>	
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+	</body>
+</html>

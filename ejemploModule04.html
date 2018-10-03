@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS with Module</title>
+	</head>
+	<body ng-app="miAplicacion">
+		
+		<div ng-controller="pruebaAppCtrl as vm">
+			{{vm.algo}}
+		</div>
+		<br>
+		<div ng-controller="pruebaAppCtrl as hy">
+			{{hy.otroMetodo}}
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		
+		<!-- Modulos para AngularJS -->
+		<script>
+			angular
+				.module('miAplicacion',[])
+				.controller('pruebaAppCtrl', function(){
+					this.algo = "Hola mundo 2";
+					this.otroMetodo = "Nuevo texto aqui 1"
+				});
+		</script>
+
+	</body>
+</html>

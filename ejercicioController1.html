@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio</title>
+	</head>
+	<body ng-app="miApp">
+
+		<div ng-controller="miController">
+			<ul >
+				<li ng-repeat="c in datos">
+					{{c.nombre}} - {{c.titulo}}
+				</li>
+			</ul>
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<script>
+			angular
+				.module("miApp",[])
+				.controller("miController",["$scope",function(m){
+					m.datos = [
+						{
+							nombre:"Renato",
+							titulo:"Astrofotografo",
+							anio: 2018
+						},
+						{
+							nombre:"Karla",
+							titulo:"Ingenieria",
+							anio: 2016
+						}
+					];
+				}]);
+		</script>
+
+	</body>
+</html>

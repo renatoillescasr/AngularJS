@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejemplo ngRepeat</title>
+	</head>
+	<body ng-init="miColeccion=['gato','perro','gallo','loro']">
+		<p ng-repeat="elemento in miColeccion" ng-init="paso=$index;">
+			Elemento con id {{paso}}: <span>{{elemento}}</span>
+		</p>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	</body>
+</html>

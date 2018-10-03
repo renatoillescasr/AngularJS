@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS Controller</title>
+	</head>
+	<body>
+
+		<div ng-app="acumuladorApp" ng-controller="acumuladorAppCtrl">
+
+			<h1>Acumulador</h1>
+			<h2>Control de Operaciones: </h2>
+
+			¿Cuanto? <input type="text" ng-model="cuanto" size="4">
+			<br>
+			<input type="button" value="+" ng-click="sumar()">
+			<input type="button" value="-" ng-click="restar()">
+
+			<h2>Totales: </h2>
+			En el acumulador llevamos <span>{{total}}</span>
+			
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<!-- Modulos para AngularJS -->
+		<script>
+			angular
+				.module("acumuladorApp",[])
+				.controller("acumuladorAppCtrl", ["$scope",function(m){
+					m.total = 0;
+					m.cuanto = 0;
+					m.sumar = function(){
+						m.total += parseInt(m.cuanto);
+					}
+					m.restar = function(){
+						m.total -= parseInt(m.cuanto);
+					}
+				}]);
+		</script>
+
+	</body>
+</html>

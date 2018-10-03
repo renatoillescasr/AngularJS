@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+      .negativo{
+        color: red;
+      }
+      .positivo{
+        color: #33f;
+      }
+      .titularpeq{
+        font-size: 10pt;
+      }
+      .titulargran{
+        font-size: 18pt;
+      }
+      .uno{
+        background-color: #666;
+      }
+      .dos{
+        color: #fff;
+      }
+      .tres{
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div ng-app="acumuladorApp" ng-controller="acumuladorAppCtrl">
+      <h1 ng-class="tamTitular">Acumulador</h1>
+      <select ng-model="tamTitular">
+        <option value="titularpeq">Peque</option>
+        <option value="titulargran">Gran</option>
+      </select>
+      <h2 ng-class="clases">Control de operación:</h2>
+      ¿Cuánto? <input type="text" ng-model="cuanto" size="4" placeholder="0" />
+      <br />
+      <input type="button" value="+" ng-click="sumar()"/>
+      <input type="button" value="-" ng-click="restar()"/>
+      <h2>Totales:</h2>
+      <p ng-class="{positivo: total>=0, negativo: total<0}">
+        En el acumulador llevamos <span>{{total}}</span>
+      </p>
+    </div>
+
+    <!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script>
+      angular
+        .module('acumuladorApp', [])
+        .controller("acumuladorAppCtrl", ["$scope",function(m){
+          m.tamTitular = "titularpeq"
+          m.total = 0;
+          m.cuanto = 0;
+          m.sumar = function(){
+            m.total += parseInt(m.cuanto);
+          }
+          m.restar = function(){
+            m.total -= parseInt(m.cuanto);
+          }
+          m.clases = ["uno", "dos", "tres"];
+        }]);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Ejemplos Checkbox Angular</title>
+	</head>
+	<body ng-app="miApp">
+
+		<h1> Colores</h1>
+
+		<div ng-controller="miController">
+			<form>
+				<input type="radio" value="rojo" ng-model="colores" ng-change="cambioColores('rojo')"> Rojo <br>
+				<input type="radio" value="azul" ng-model="colores" ng-change="cambioColores('azul')"> Azul <br>
+				<input type="radio" value="verde" ng-model="colores" ng-change="cambioColores('verde')"> Verde <br>
+				<input type="text" ng-model="seleccion">
+			</form>			
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<script>
+			angular
+				.module("miApp",[])
+				.controller('miController', ['$scope', function(m){
+					m.seleccion="Seleccione un color";
+					m.cambioColores = function(s){
+						m.seleccion = s;
+					}
+				}]);
+		</script>
+	
+	</body>
+</html>

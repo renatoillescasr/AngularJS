@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS Controller</title>
+	</head>
+	<body>
+
+		<div ng-app="acumuladorApp" ng-controller="acumuladorAppCtrl as vm">
+
+			<h1>Acumulador</h1>
+			<h2>Control de Operaciones: </h2>
+
+			¿Cuanto? <input type="text" ng-model="vm.cuanto" size="4">
+			<br>
+			<input type="button" value="+" ng-click="vm.sumar()">
+			<input type="button" value="-" ng-click="vm.restar()">
+
+			<h2>Totales: </h2>
+			En el acumulador llevamos <span>{{vm.total}}</span>
+			
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		
+		<!-- Modulos para AngularJS -->
+		<script>
+			angular
+				.module('acumuladorApp',[])
+				.controller('acumuladorAppCtrl', controladorPrincipal);
+
+			function controladorPrincipal(){
+				//var scope = this;
+				this.total = 0;
+				this.cuanto = 0;
+				this.sumar = function(){
+					this.total += parseInt(this.cuanto);
+				}
+				this.restar = function(){
+					this.total -= parseInt(this.cuanto);
+				}
+			};
+		</script>
+
+	</body>
+</html>

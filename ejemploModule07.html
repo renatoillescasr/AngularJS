@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body ng-app="Application">
+
+		<h2>Controller con AngularJS</h2>
+
+		<div ng-controller="miController">
+			{{dato}}
+			<ul ng-repeat="c in customer">
+				<li>
+					{{usuario}}
+					{{c.name}}
+				</li>
+			</ul>
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<!-- Modulos para AngularJS -->
+		<script>
+			angular
+				.module("Application",[])
+				.controller("miController", ["$scope", function(m){
+					m.customer = [
+						{
+							name:"Renato"
+						},
+						{
+							name:"Karla"
+						}
+					];
+					m.dato="titulo";
+					m.usuario="usuario: ";
+				}]);
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body ng-app="miApp">
+
+		<div ng-controller="miController">
+			<p>
+				<input type="checkbox" ng-model="activo" ng-change="avisar()"> Este campo es activo y su valore en el modelo es {{activo}}.
+				<br>
+				Tiene ademas un ng-change asociado con el metodo avisar().
+			</p>
+			<p>
+				<input type="checkbox" ng-model="clarooscuro" ng-true-value="claro" ng-false-value="oscuro">
+				Este campo tiene un value modificado. Ahora vale {{clarooscuro}}.
+			</p>
+			<p>
+				<input type="button" ng-click="activo=true" value="pulsa para cambiar la propiedad del modelo del primer checkbox a true"> Observaras que aunque el estado puede cambiar, no se invoca al ng-change de ese primer checkbox.
+			</p>
+		</div>
+
+	</body>
+
+	<!--CDN AngularJS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<script>
+		angular
+			.module("miApp",[])
+			.controller('miController', ['$scope', function(m){
+				m.activo= false;
+				m.avisar = function(){
+					console.log("cambie");
+				}
+			}]);
+	</script>
+</html>

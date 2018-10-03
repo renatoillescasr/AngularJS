@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Agregar items a lista AngularJS</title>
+	</head>
+	<body ng-app ng-init="pensamientos=[]">
+
+		<h1> AngularJS </h1>
+		<input type="text" ng-model="nuevoPensamiento">
+		<input type="button" value="Agregar" ng-click="pensamientos.push(nuevoPensamiento); nuevoPensamiento='';">
+
+		<h2>Listado</h2>
+		<ul>
+			<li ng-repeat="pensamiento in pensamientos" ng-init="paso=$index">
+				{{paso}}. {{pensamiento}}
+			</li>
+		</ul>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+	</body>
+</html>

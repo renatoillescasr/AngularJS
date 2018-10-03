@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS con bucle</title>
+	</head>
+	<body>
+
+		<div ng-init="precio=1; miArreglo=[1,2,3,4,5];">
+			Valor: <input type="number" ng-model="precio">
+		</div>
+		<!-- {{precio | number: 2}} -->
+		<p ng-repeat="elemento in miArreglo" ng-init="paso=$index;">
+			{{precio}} * {{(paso+1)}} = {{(precio * (paso+1))}}
+		</p>
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+	</body>
+</html>

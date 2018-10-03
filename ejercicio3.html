@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="">
+	</head>
+
+	<body ng-app="myApp" ng-controller="myController" ng-init="cantidad=0 ; precio=0">
+
+		<h3>Cantidad</h3>
+		<input type="number" ng-model="cantidad" ng-click="calculoSubtotal(cantidad,precio)">
+		<h3>Precio</h3>
+		<input type="number" ng-model="precio" ng-click="calculoSubtotal(cantidad,precio)">
+
+		<h3>Descuento</h3>
+		<div>
+			<form>
+				<input type="radio" value="2" ng-model="descuento" ng-change="calculoDescuento(cantidad,precio,descuento)">2%
+				<br>
+				<input type="radio" value="5" ng-model="descuento" ng-change="calculoDescuento(cantidad,precio,descuento)">5%
+				<br>
+				<input type="radio" value="8" ng-model="descuento" ng-change="calculoDescuento(cantidad,precio,descuento)">8%
+				<br>
+			</form>
+		</div>
+
+		<h3>Detalle </h3>
+		<ul>
+		    <li>Subtotal: {{subtotal | currency}}</li>
+		    <li>Descuento: {{valorDescuento | currency}}</li>
+		    <li><strong> Total: {{total | currency}} </strong></li>
+		</ul>
+		
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<script>
+			angular
+				.module('myApp', [])
+				.controller('myController', ['$scope', function (m) {
+					m.calculoSubtotal = function (c,p){
+						m.subtotal = (c * p);
+					};
+					m.calculoDescuento = function(c,p,d){
+						m.valorDescuento = (c * p) * (d / 100);
+						m.total = m.subtotal - m.valorDescuento;
+					};
+				}]);
+		</script>
+	
+	</body>
+
+</html>

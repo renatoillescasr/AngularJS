@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body ng-app="myApp">
+
+		<div ng-controller="myController">
+			<h3>Articulo</h3>
+			Filtro por: <input type="text" ng-model="filtro" >
+			<ul>
+				<li ng-repeat="c in collection | filter:{article:filtro}">
+				    <!--para filtro general usar filter:filtro-->
+					{{c.article}} - {{c.name}}
+				</li>
+			</ul>
+		</div>
+
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<script>
+		angular
+			.module('myApp', [])
+			.controller('myController', ['$scope', function(m){
+				m.collection = [
+					{
+						article: "electronico",
+						name: "Movil"
+					},
+					{
+						article: "electronico",
+						name: "PS4"
+					},
+					{
+						article: "dormitorio",
+						name: "cama"
+					}
+				];
+			}]);
+	</script>
+
+</html>

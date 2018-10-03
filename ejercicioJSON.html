@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyFirstApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejemplo Angular</title>
+  </head>
+  <body ng-controller="FirstController">
+    <input type="text" ng-model="nuevoComentario.comentario"><br>
+    <input type="text" ng-model="nuevoComentario.username"><br>
+    <input type="button" ng-click="agregarComentario()" value="Agregar"><br>
+    <h3>Comentarios</h3>
+    <ul>
+      <li ng-repeat="arreglo in comentarios">
+        {{arreglo.comentario}} - <strong>{{arreglo.username}}</strong>
+      </li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <script>
+      angular
+      .module("MyFirstApp",[])
+      .controller("FirstController",["$scope",function(m){
+        m.nuevoComentario={};
+        m.comentarios = [
+          {
+            comentario: "Buen tutorial",
+            username: "codigoFacilito"
+          },
+          {
+            comentario: "Mal tutorial",
+            username: "Renato"
+          }
+        ];
+        m.agregarComentario = function(){
+          m.comentarios.push(m.nuevoComentario);
+          m.nuevoComentario = {};
+        }
+      }]);
+
+    </script>
+  </body>
+</html>

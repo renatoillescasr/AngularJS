@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejemplo Angular con valores</title>
+	</head>
+	<body>
+		<div ng-init="precio=1;unidad=2;">
+			Valor: <input type="number" ng-model="precio">
+		</div>
+		{{precio | number: 2}}
+		<br>
+		{{precio}} * {{unidad}} = {{(precio * unidad) | number: 2}}
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	</body>
+</html>

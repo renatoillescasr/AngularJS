@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ordenamiento </title>
+	</head>
+	<body ng-app="myApp">
+
+		<h3>Ordenamiento usando Checkbox en Angular</h3>
+		<div ng-controller="myController">
+			<form>
+				<input type="radio" ng-model="orden" value="name" >Nombre
+				<input type="radio" ng-model="orden" value="lastname" >Apellido
+				<br><br>
+				Ordenamiento por: {{orden}}
+			</form>
+			<ul>
+				<li ng-repeat="c in datos | orderBy:orden:false">
+					{{$index}} {{c.name}} {{c.lastname}}
+				</li>
+			</ul>			
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<script>
+		angular
+			.module('myApp', [])
+			.controller('myController', ['$scope', function(m){
+				m.datos = [
+					{
+						name:"Renato",
+						lastname:"Illescas"
+					},
+					{
+						name:"Karla",
+						lastname:"Villegas"
+					},
+					{
+						name:"Cindy",
+						lastname:"Amat"
+					},
+					{	
+						name:"Braulio",
+						lastname:"Osorio"
+					},
+				];
+			}])
+	</script>
+</html>

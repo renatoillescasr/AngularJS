@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>AngularJS with Module</title>
+	</head>
+	<body ng-app="miAplicacion">
+		
+		<div ng-controller="pruebaAppCtrl">
+			{{algo}}
+			<br>
+			{{otroMetodo}}
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		
+		<!-- Modulos para AngularJS -->
+		<script>
+			angular
+				.module('miAplicacion',[])
+				.controller('pruebaAppCtrl', ['$scope', function($miVariable){
+					$miVariable.algo = "Hola mundo 1";
+					$miVariable.otroMetodo = "Nuevo texto aqui"
+				}]);
+		</script>
+
+	</body>
+</html>

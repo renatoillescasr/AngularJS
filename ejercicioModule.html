@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> Ejericio AngularJS Module</title>
+	</head>
+	<body ng-app="miApp">
+		
+		<div ng-controller="miController" ng-inti="numero=0;">
+			<h2>Contador</h2>
+			<input type="button" value="+" ng-click="Sumar(1)">
+			<input type="button" value="-" ng-click="Restar(1)">
+			<input type="text" size=3 ng-model="contador">
+			<p> {{contador}} </p>
+			<br>
+			<br>
+		</div>
+
+		<!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<script>
+			angular
+				.module("miApp",[])
+				.controller("miController", function($scope){
+					$scope.contador = 0 ;
+					
+					$scope.Sumar = function(cantidad){
+						$scope.contador += cantidad;
+					}
+					$scope.Restar = function(cantidad){
+						$scope.contador -= cantidad;
+					}
+				});
+		</script>
+
+	</body>
+</html>

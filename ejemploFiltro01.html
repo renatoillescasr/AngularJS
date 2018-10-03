@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<title></title>
+    	<link rel="stylesheet" href="">
+    </head>
+    <body ng-app="myApp">
+    
+        <h2>{{"Renato" | myFilter:"*"}}</h2>
+    
+        <!--CDN AngularJS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+		<script>
+            angular
+                .module('myApp', [])
+                .controller('myController', ['$scope',function(){
+                
+                }])
+                .filter('myFilter', function(){
+                    var cambiaVocalFiltro = function(datosOriginales, argumento){
+                         var nuevosDatos = datosOriginales.replace(/o/g, argumento)
+                         return nuevosDatos;
+                    };
+                    return cambiaVocalFiltro;
+                })
+                
+        </script>
+		
+    </body>
+</html>
